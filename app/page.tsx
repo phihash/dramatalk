@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <h1>タイトル</h1>
+      <p>ホーム</p>
     </>
   );
 }
