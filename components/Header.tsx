@@ -15,7 +15,7 @@ const Header = () => {
   return (
     <header className="flex items-center justify-between px-10 py-6 bg-white shadow-md">
       <Link href="/" legacyBehavior>
-        <a className="text-2xl font-bold">Drama talk</a>
+        <a className="text-2xl font-bold font-mono">Drama talk</a>
       </Link>
 
       <nav className="hidden md:block">
@@ -30,7 +30,7 @@ const Header = () => {
               <a className={`text-gray-800 font-bold border-slate-500 hover:border-b-4`}>探す</a>
             </Link>
           </li>
-          <li className="bg-blue-600 p-3 rounded font-bold hover:bg-blue-500">
+          <li className="bg-blue-600 px-4 py-3 rounded font-bold hover:bg-blue-500">
             <Link href="/login" legacyBehavior>
               <a className={`text-white`}>Log in</a>
             </Link>
