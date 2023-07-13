@@ -6,14 +6,14 @@ import { useEffect } from "react";
 
 export default function Home() {
   const [dramas, setDramas] = useState<any>([]);
-  useEffect(() => {
-    const getDramas = async () => {
-      const dramas = await getAllDramas();
-      setDramas(dramas);
-      console.log(dramas);
-    };
-    getDramas();
-  }, []);
+  // useEffect(() => {
+  //   const getDramas = async () => {
+  //     const dramas = await getAllDramas();
+  //     setDramas(dramas);
+  //     console.log(dramas);
+  //   };
+  //   getDramas();
+  // }, []);
   return (
     <>
       <Header />
