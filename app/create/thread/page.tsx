@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "@/components/Header";
+import Category from "@/components/Category";
 const CreateThread = () => {
   return (
     <>
@@ -121,67 +122,12 @@ const CreateThread = () => {
             {/*  */}
 
             <div className="w-full flex flex-wrap justify-center gap-4 ">
-              {/* checkboxいれ */}
-              <div  className="w-5/12 text-center">
-                <input
-                  type="checkbox"
-                  id="choose-me1"
-                  className="peer hidden"
-                />
-                <label
-                  htmlFor="choose-me1"
-                  className="select-none cursor-pointer rounded-lg border-2 border-sky-200 bg-sky-200 block
-   py-3 px-6 font-bold text-white transition-colors duration-200 ease-in-out peer-checked:bg-sky-500 peer-checked:text-white peer-checked:border-sky-500 "
-                >
-                  コメディ
-                </label>
-              </div>
-
-              <div  className="w-5/12 text-center">
-                <input
-                  type="checkbox"
-                  id="choose-me2"
-                  className="peer hidden"
-                />
-                <label
-                  htmlFor="choose-me2"
-                  className="select-none cursor-pointer rounded-lg border-2 border-sky-200 bg-sky-200 block
-   py-3 px-6 font-bold text-white transition-colors duration-200 ease-in-out peer-checked:bg-sky-500 peer-checked:text-white peer-checked:border-sky-500 "
-                >
-                  恋愛
-                </label>
-              </div>
-
-              <div  className="w-5/12 text-center">
-                <input
-                  type="checkbox"
-                  id="choose-me3"
-                  className="peer hidden"
-                />
-                <label
-                  htmlFor="choose-me3"
-                  className="select-none cursor-pointer rounded-lg border-2 border-sky-200 bg-sky-200 block
-   py-3 px-6 font-bold text-white transition-colors duration-200 ease-in-out peer-checked:bg-sky-500 peer-checked:text-white peer-checked:border-sky-500 "
-                >
-                  シリアス
-                </label>
-              </div>
-
-              <div  className="w-5/12 text-center">
-                <input
-                  type="checkbox"
-                  id="choose-me4"
-                  className="peer hidden"
-                />
-                <label
-                  htmlFor="choose-me4"
-                  className="select-none cursor-pointer rounded-lg border-2 border-sky-200 bg-sky-200 block
-   py-3 px-6 font-bold text-white transition-colors duration-200 ease-in-out peer-checked:bg-sky-500 peer-checked:text-white peer-checked:border-sky-500 "
-                >
-                  感動
-                </label>
-              </div>
-
+              <Category categoryName="コメディ" />
+              <Category categoryName="恋愛" />
+              <Category categoryName="シリアス" />
+              <Category categoryName="感動" />
+              <Category categoryName="警察" />
+              <Category categoryName="医療" />
             </div>
 
             {/*  */}
