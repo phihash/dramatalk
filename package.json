@@ -29,17 +29,12 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
       "prettier --write"
     ]
   },
   "devDependencies": {
     "husky": "^8.0.0",
     "lint-staged": "^13.2.3"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   }
+
 }
