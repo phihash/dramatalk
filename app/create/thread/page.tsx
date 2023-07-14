@@ -128,6 +128,8 @@ const CreateThread = () => {
               <Category categoryName="感動" />
               <Category categoryName="警察" />
               <Category categoryName="医療" />
+              <Category categoryName="アクション" />
+              <Category categoryName="学園" />
             </div>
 
             {/*  */}
