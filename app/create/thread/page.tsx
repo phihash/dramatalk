@@ -1,7 +1,14 @@
 import React from "react";
 import Header from "@/components/Header";
 import Category from "@/components/Category";
+import { addDrama } from "@/utils/supabaseFunctions";
+import { useState } from "react";
 const CreateThread = () => {
+
+    const [dramaTitle ,setDramaTitle] = useState("");
+    const [broadCastingStationName,setBroadCastingStationName] = useState("")
+    const [category, setCategory] = useState([])
+
   return (
     <>
       <Header />
