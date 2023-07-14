@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "@/components/Header";
 import Category from "@/components/Category";
+import BroadcastingStationRadioButton from "@/components/BroadcastingStationRadioButton";
 const CreateThread = () => {
   return (
     <>
@@ -22,96 +23,12 @@ const CreateThread = () => {
               </label>
             </h2>
 
-            <div className="flex items-center mb-4">
-              <input
-                id="default-radio-1"
-                type="radio"
-                value=""
-                name="default-radio"
-                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800  dark:bg-gray-700 dark:border-gray-600 "
-              />
-              <label
-                htmlFor="default-radio-1"
-                className="ml-2 text-sm font-bold text-gray-900 cursor-pointer"
-              >
-                TBS系
-              </label>
-            </div>
-            <div className="flex items-center mb-4">
-              <input
-                id="default-radio-2"
-                type="radio"
-                value=""
-                name="default-radio"
-                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800  dark:bg-gray-700 dark:border-gray-600"
-              />
-              <label
-                htmlFor="default-radio-2"
-                className="ml-2 text-sm font-bold text-gray-900 cursor-pointer"
-              >
-                日本テレビ系
-              </label>
-            </div>
-            <div className="flex items-center mb-4">
-              <input
-                id="default-radio-3"
-                type="radio"
-                value=""
-                name="default-radio"
-                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800  dark:bg-gray-700 dark:border-gray-600"
-              />
-              <label
-                htmlFor="default-radio-3"
-                className="ml-2 text-sm font-bold text-gray-900 cursor-pointer"
-              >
-                朝日系
-              </label>
-            </div>
-            <div className="flex items-center mb-4">
-              <input
-                id="default-radio-4"
-                type="radio"
-                value=""
-                name="default-radio"
-                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800  dark:bg-gray-700 dark:border-gray-600"
-              />
-              <label
-                htmlFor="default-radio-4"
-                className="ml-2 text-sm font-bold text-gray-900 cursor-pointer"
-              >
-                フジテレビ系
-              </label>
-            </div>
-            <div className="flex items-center mb-4">
-              <input
-                id="default-radio-5"
-                type="radio"
-                value=""
-                name="default-radio"
-                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800  dark:bg-gray-700 dark:border-gray-600"
-              />
-              <label
-                htmlFor="default-radio-5"
-                className="ml-2 text-sm font-bold text-gray-900 cursor-pointer"
-              >
-                NHK系
-              </label>
-            </div>
-            <div className="flex items-center mb-4">
-              <input
-                id="default-radio-6"
-                type="radio"
-                value=""
-                name="default-radio"
-                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800  dark:bg-gray-700 dark:border-gray-600"
-              />
-              <label
-                htmlFor="default-radio-6"
-                className="ml-2 text-sm font-bold text-gray-900 cursor-pointer"
-              >
-                ネット
-              </label>
-            </div>
+            <BroadcastingStationRadioButton broadcastingStationName="NHK系列"></BroadcastingStationRadioButton>
+            <BroadcastingStationRadioButton broadcastingStationName="TBS系列"></BroadcastingStationRadioButton>
+            <BroadcastingStationRadioButton broadcastingStationName="日本テレビ系列"></BroadcastingStationRadioButton>
+            <BroadcastingStationRadioButton broadcastingStationName="朝日系列"></BroadcastingStationRadioButton>
+            <BroadcastingStationRadioButton broadcastingStationName="フジテレビ系列"></BroadcastingStationRadioButton>
+            <BroadcastingStationRadioButton broadcastingStationName="ネット"></BroadcastingStationRadioButton>
           </div>
           <div className="mb-8">
             <h2 className="text-gray-900 text-2xl mb-6 font-bold title-font">
