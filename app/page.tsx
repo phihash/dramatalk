@@ -13,6 +13,7 @@ export default async function Home() {
   return (
     <>
       <Header></Header>
+      <DramaItem></DramaItem>
       {dramas.map((post) => (
         <p key={post.id}>
           <Link href={`/static/${post.id}`}>{post.dramaTitle}</Link>
