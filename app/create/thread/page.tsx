@@ -7,7 +7,7 @@ const CreateThread = () => {
     <>
       <Header />
       <div className="container mt-8 mx-auto flex">
-        <div className="lg:w-2/5 md:w-3/4 bg-white rounded-lg p-8 flex flex-col md:ml-auto w-3/4 mt-10 md:mt-0 relative  mx-auto">
+        <div className="lg:w-3/5 md:w-3/4 bg-white rounded-lg p-8 flex flex-col md:ml-auto mt-10 md:mt-0 relative  mx-auto">
           <div className=" mb-8">
             <h2 className="text-gray-900 text-2xl mb-6 font-bold title-font">
               <label htmlFor="" className="leading-7 text-gray-600">
