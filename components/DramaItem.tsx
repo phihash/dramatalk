@@ -1,36 +1,37 @@
 import React from "react";
+import { FaRegComment, FaRegThumbsUp } from "react-icons/fa";
 
-const DramaItem = () => {
+type Prop = {
+  dramaTitle: string;
+  broadCastingStationName: string;
+};
+
+const DramaItem = ({ dramaTitle, broadCastingStationName }: Prop) => {
   return (
-    <section className="text-gray-600 body-font">
-      <div className="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+    <div className="p-4 md:w-3/6  w-5/6 m-auto mt-12">
+      <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
         <img
-          className="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded"
-          alt="hero"
-          src="https://dummyimage.com/720x600"
+          className="lg:h-48 md:h-36 w-full object-cover object-center"
+          src="https://dummyimage.com/700x480"
+          alt="blog"
         />
-        <div className="text-center lg:w-2/3 w-full">
-          <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
-            Microdosing synth tattooed vexillologist
-          </h1>
-          <p className="mb-8 leading-relaxed">
-            Meggings kinfolk echo park stumptown DIY, kale chips beard jianbing
-            tousled. Chambray dreamcatcher trust fund, kitsch vice godard
-            disrupt ramps hexagon mustache umami snackwave tilde chillwave ugh.
-            Pour-over meditation PBR&amp;B pickled ennui celiac mlkshk freegan
-            photo booth af fingerstache pitchfork.
-          </p>
-          <div className="flex justify-center">
-            <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-              Button
-            </button>
-            <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
-              Button
-            </button>
+        <div className="p-6">
+          <h2 className="tracking-widest text-sm title-font font-bold text-gray-400 mb-1">
+            {broadCastingStationName}
+          </h2>
+          <h1 className="title-font text-lg font-bold mb-3">{dramaTitle}</h1>
+          <div className="flex items-center flex-wrap ">
+            <span className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+              <FaRegComment />
+              1.2K
+            </span>
+            <span className="text-gray-400 inline-flex items-center leading-none text-sm">
+              <FaRegThumbsUp />6
+            </span>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
