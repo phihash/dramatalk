@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import DesktopNavLink from "./DesktopNavLink";
+import NavLink from "./NavLink";
 import { FaBars } from "react-icons/fa";
 
 const Header = () => {
@@ -20,17 +20,17 @@ const Header = () => {
 
       <nav className="hidden md:block">
         <ul className="flex items-center space-x-12">
-          <DesktopNavLink
+          <NavLink
             href="/create"
             listItemName="新規作成"
             className="text-gray-800 font-bold border-slate-500 hover:border-b-4"
           />
-          <DesktopNavLink
+          <NavLink
             href="/search"
             listItemName="探す"
             className="text-gray-800 font-bold border-slate-500 hover:border-b-4"
           />
-          <DesktopNavLink
+          <NavLink
             href="/login"
             listItemName="ログイン"
             className="text-white bg-blue-600 px-4 py-3 rounded font-bold hover:bg-blue-500"
@@ -48,27 +48,21 @@ const Header = () => {
         <>
           <nav className="md:hidden fixed inset-0 flex items-center justify-center bg-white z-10">
             <ul className="space-y-12 w-1/2">
-              <li>
-                <Link href="/create" legacyBehavior>
-                  <button className="block rounded-lg bg-sky-500 w-full px-16 py-4 text-center text-sm font-bold text-white  text-lg outline-none ring-gray-300 transition duration-100 hover:bg-sky-400 focus-visible:ring active:bg-gray-600 ">
-                    Create
-                  </button>
-                </Link>
-              </li>
-              <li>
-                <Link href="/search" legacyBehavior>
-                  <button className="block rounded-lg bg-sky-500 w-full px-16 py-4 text-center text-sm font-bold text-white  text-lg outline-none ring-gray-300 transition duration-100 hover:bg-sky-400 focus-visible:ring active:bg-gray-600 ">
-                    Search
-                  </button>
-                </Link>
-              </li>
-              <li>
-                <Link href="/login" legacyBehavior>
-                  <button className="block rounded-lg bg-blue-600 w-full px-16 py-4 text-center text-sm font-bold text-white  text-lg outline-none ring-gray-300 transition duration-100 hover:bg-blue-500 focus-visible:ring active:bg-gray-600 ">
-                    Log in
-                  </button>
-                </Link>
-              </li>
+              <NavLink
+                href="/create"
+                listItemName="新規作成"
+                className="block rounded-lg bg-sky-500 w-full px-16 py-4 text-center text-sm font-bold text-white  text-lg outline-none ring-gray-300 transition duration-100 hover:bg-sky-400 focus-visible:ring"
+              />
+              <NavLink
+                href="/search"
+                listItemName="探す"
+                className="block rounded-lg bg-sky-500 w-full px-16 py-4 text-center text-sm font-bold text-white  text-lg outline-none ring-gray-300 transition duration-100 hover:bg-sky-400 focus-visible:ring"
+              />
+              <NavLink
+                href="/login"
+                listItemName="ログイン"
+                className="block rounded-lg bg-blue-600 w-full px-16 py-4 text-center text-sm font-bold text-white  text-lg outline-none ring-gray-300 transition duration-100 hover:bg-blue-500 focus-visible:ring"
+              />
               <li>
                 <button
                   onClick={toggleMenu}
