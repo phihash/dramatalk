@@ -10,8 +10,8 @@ type Prop = {
 const NavLink = ({ listItemName, className, href }: Prop) => {
   return (
     <li>
-      <Link href={href} legacyBehavior>
-        <a className={className}>{listItemName}</a>
+      <Link href={href} className={className}>
+        {listItemName}
       </Link>
     </li>
   );
