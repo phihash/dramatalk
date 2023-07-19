@@ -1,7 +1,8 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import NavLink from "./NavLink";
+import { FaBars } from "react-icons/fa";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,48 +20,27 @@ const Header = () => {
 
       <nav className="hidden md:block">
         <ul className="flex items-center space-x-12">
-          <li>
-            <Link href="/create/thread" legacyBehavior>
-              <a
-                className={`text-gray-800 font-bold border-slate-500 hover:border-b-4`}
-              >
-                新規作成
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/search" legacyBehavior>
-              <a
-                className={`text-gray-800 font-bold border-slate-500 hover:border-b-4`}
-              >
-                探す
-              </a>
-            </Link>
-          </li>
-          <li className="bg-blue-600 px-4 py-3 rounded font-bold hover:bg-blue-500">
-            <Link href="/login" legacyBehavior>
-              <a className={`text-white`}>Log in</a>
-            </Link>
-          </li>
+          <NavLink
+            href="/create"
+            listItemName="新規作成"
+            className="text-gray-800 font-bold border-slate-500 hover:border-b-4"
+          />
+          <NavLink
+            href="/search"
+            listItemName="探す"
+            className="text-gray-800 font-bold border-slate-500 hover:border-b-4"
+          />
+          <NavLink
+            href="/login"
+            listItemName="ログイン"
+            className="text-white bg-blue-600 px-4 py-3 rounded font-bold hover:bg-blue-500"
+          />
         </ul>
       </nav>
 
       <div className="md:hidden">
         <button onClick={toggleMenu}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            className="h-6 w-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            />
-          </svg>
+          <FaBars />
         </button>
       </div>
 
@@ -68,27 +48,21 @@ const Header = () => {
         <>
           <nav className="md:hidden fixed inset-0 flex items-center justify-center bg-white z-10">
             <ul className="space-y-12 w-1/2">
-              <li>
-                <Link href="/create/thread" legacyBehavior>
-                  <button className="block rounded-lg bg-sky-500 w-full px-16 py-4 text-center text-sm font-bold text-white  text-lg outline-none ring-gray-300 transition duration-100 hover:bg-sky-400 focus-visible:ring active:bg-gray-600 ">
-                    Create
-                  </button>
-                </Link>
-              </li>
-              <li>
-                <Link href="/search" legacyBehavior>
-                  <button className="block rounded-lg bg-sky-500 w-full px-16 py-4 text-center text-sm font-bold text-white  text-lg outline-none ring-gray-300 transition duration-100 hover:bg-sky-400 focus-visible:ring active:bg-gray-600 ">
-                    Search
-                  </button>
-                </Link>
-              </li>
-              <li>
-                <Link href="/login" legacyBehavior>
-                  <button className="block rounded-lg bg-blue-600 w-full px-16 py-4 text-center text-sm font-bold text-white  text-lg outline-none ring-gray-300 transition duration-100 hover:bg-blue-500 focus-visible:ring active:bg-gray-600 ">
-                    Log in
-                  </button>
-                </Link>
-              </li>
+              <NavLink
+                href="/create"
+                listItemName="新規作成"
+                className="block rounded-lg bg-sky-500 w-full px-16 py-4 text-center text-sm font-bold text-white  text-lg outline-none ring-gray-300 transition duration-100 hover:bg-sky-400 focus-visible:ring"
+              />
+              <NavLink
+                href="/search"
+                listItemName="探す"
+                className="block rounded-lg bg-sky-500 w-full px-16 py-4 text-center text-sm font-bold text-white  text-lg outline-none ring-gray-300 transition duration-100 hover:bg-sky-400 focus-visible:ring"
+              />
+              <NavLink
+                href="/login"
+                listItemName="ログイン"
+                className="block rounded-lg bg-blue-600 w-full px-16 py-4 text-center text-sm font-bold text-white  text-lg outline-none ring-gray-300 transition duration-100 hover:bg-blue-500 focus-visible:ring"
+              />
               <li>
                 <button
                   onClick={toggleMenu}
