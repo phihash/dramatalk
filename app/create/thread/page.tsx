@@ -3,6 +3,23 @@ import Header from "@/components/Header";
 import Category from "@/components/Category";
 import BroadcastingStationRadioButton from "@/components/BroadcastingStationRadioButton";
 const CreateThread = () => {
+  const broadcastingStations = [
+    "NHK系列",
+    "TBS系列",
+    "日本テレビ系列",
+    "フジテレビ系列",
+    "テレビ朝日系列",
+  ];
+  const categories = [
+    "コメディ",
+    "恋愛",
+    "シリアス",
+    "感動",
+    "警察",
+    "医療",
+    "アクション",
+    "学園",
+  ];
   return (
     <>
       <Header />
@@ -22,13 +39,14 @@ const CreateThread = () => {
                 放送局
               </label>
             </h2>
-
-            <BroadcastingStationRadioButton broadcastingStationName="NHK系列"></BroadcastingStationRadioButton>
-            <BroadcastingStationRadioButton broadcastingStationName="TBS系列"></BroadcastingStationRadioButton>
-            <BroadcastingStationRadioButton broadcastingStationName="日本テレビ系列"></BroadcastingStationRadioButton>
-            <BroadcastingStationRadioButton broadcastingStationName="朝日系列"></BroadcastingStationRadioButton>
-            <BroadcastingStationRadioButton broadcastingStationName="フジテレビ系列"></BroadcastingStationRadioButton>
-            <BroadcastingStationRadioButton broadcastingStationName="ネット"></BroadcastingStationRadioButton>
+            {broadcastingStations.map((station) => {
+              return (
+                <BroadcastingStationRadioButton
+                  key={station}
+                  broadcastingStationName={station}
+                />
+              );
+            })}
           </div>
           <div className="mb-8">
             <h2 className="text-gray-900 text-2xl mb-6 font-bold title-font">
@@ -39,17 +57,10 @@ const CreateThread = () => {
             {/*  */}
 
             <div className="w-full flex flex-wrap justify-center gap-4 ">
-              <Category categoryName="コメディ" />
-              <Category categoryName="恋愛" />
-              <Category categoryName="シリアス" />
-              <Category categoryName="感動" />
-              <Category categoryName="警察" />
-              <Category categoryName="医療" />
-              <Category categoryName="アクション" />
-              <Category categoryName="学園" />
+              {categories.map((category) => {
+                return <Category key={category} categoryName={category} />;
+              })}
             </div>
-
-            {/*  */}
           </div>
           <button className="text-white bg-blue-600 border-0 py-3 px-6 focus:outline-none hover:bg-blue-500 rounded text-lg font-bold">
             スレッド作成
