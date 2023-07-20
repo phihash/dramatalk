@@ -21,7 +21,7 @@ const Header = () => {
       <nav className="hidden md:block">
         <ul className="flex items-center space-x-12">
           <NavLink
-            href="/create"
+            href="/create/thread"
             listItemName="新規作成"
             className="text-gray-800 font-bold border-slate-500 hover:border-b-4"
           />
@@ -49,7 +49,7 @@ const Header = () => {
           <nav className="md:hidden fixed inset-0 flex items-center justify-center bg-white z-10">
             <ul className="space-y-12 w-1/2">
               <NavLink
-                href="/create"
+                href="/create/thread"
                 listItemName="新規作成"
                 className="block rounded-lg bg-sky-500 w-full px-16 py-4 text-center text-sm font-bold text-white  text-lg outline-none ring-gray-300 transition duration-100 hover:bg-sky-400 focus-visible:ring"
               />
