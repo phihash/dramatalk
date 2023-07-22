@@ -1,23 +1,22 @@
-"use client";
+import Link from "next/link";
+import { supabase } from "@/utils/supabase";
 import Header from "@/components/Header";
-import { getAllDramas } from "@/utils/supabaseFunctions";
-import React, { useState } from "react";
-import { useEffect } from "react";
 
-export default function Home() {
-  const [dramas, setDramas] = useState<any>([]);
-  // useEffect(() => {
-  //   const getDramas = async () => {
-  //     const dramas = await getAllDramas();
-  //     setDramas(dramas);
-  //     console.log(dramas);
-  //   };
-  //   getDramas();
-  // }, []);
+export default async function Home() {
+  const { data: dramas } = await supabase.from("dramas").select();
+
+  if (!dramas) {
+    return <p>No posts found.</p>;
+  }
+
   return (
     <>
-      <Header />
-      <p>ホーム</p>
+      <Header></Header>
+      {dramas.map((post) => (
+        <p key={post.id}>
+          <Link href={`/static/${post.id}`}>{post.dramaTitle}</Link>
+        </p>
+      ))}
     </>
   );
 }
