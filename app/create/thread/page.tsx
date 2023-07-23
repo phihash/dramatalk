@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { supabase } from "@/utils/supabase";
 import Header from "@/components/Header";
 import Category from "@/components/Category";
 import { addDrama } from "@/utils/supabaseFunctions";
@@ -22,6 +23,26 @@ const CreateThread = () => {
     "アクション",
     "学園",
   ];
+
+  const handleDramaTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setDramaTitle(e.target.value);
+  };
+
+  const [dramaTitle, setDramaTitle] = useState("");
+
+  const createThread = async () => {
+    const { data, error } = await supabase
+      .from("dramas")
+      .insert({ dramaTitle: dramaTitle });
+    if (error) {
+      console.error("Error inserting data:", error);
+    } else {
+      console.log("Insert success:", data);
+    }
+    console.log("スレッドを生成されました");
+    setDramaTitle("");
+  };
+
   return (
     <>
       <Header />
@@ -33,7 +54,11 @@ const CreateThread = () => {
                 ドラマ名
               </label>
             </h2>
-            <input className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+            <input
+              onChange={handleDramaTitleChange}
+              value={dramaTitle}
+              className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            />
           </div>
           <div className=" mb-8">
             <h2 className="text-gray-900 text-2xl mb-6 font-bold title-font">
@@ -64,7 +89,10 @@ const CreateThread = () => {
               })}
             </div>
           </div>
-          <button className="text-white bg-blue-600 border-0 py-3 px-6 focus:outline-none hover:bg-blue-500 rounded text-lg font-bold">
+          <button
+            className="text-white bg-blue-600 border-0 py-3 px-6 focus:outline-none hover:bg-blue-500 rounded text-lg font-bold"
+            onClick={createThread}
+          >
             スレッド作成
           </button>
         </div>
