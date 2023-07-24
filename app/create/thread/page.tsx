@@ -3,9 +3,11 @@ import React, { useState } from "react";
 import { supabase } from "@/utils/supabase";
 import Header from "@/components/Header";
 import Category from "@/components/Category";
-import { addDrama } from "@/utils/supabaseFunctions";
 import BroadcastingStationRadioButton from "@/components/BroadcastingStationRadioButton";
 const CreateThread = () => {
+  const [dramaTitle, setDramaTitle] = useState("");
+  const [broadCastingStationName, setBroadCastingStationName] = useState("");
+
   const broadcastingStations = [
     "NHK系列",
     "TBS系列",
@@ -28,19 +30,21 @@ const CreateThread = () => {
     setDramaTitle(e.target.value);
   };
 
-  const [dramaTitle, setDramaTitle] = useState("");
-
   const createThread = async () => {
-    const { data, error } = await supabase
-      .from("dramas")
-      .insert({ dramaTitle: dramaTitle });
-    if (error) {
-      console.error("Error inserting data:", error);
+    if (dramaTitle != "" && broadCastingStationName != "") {
+      const { error } = await supabase.from("dramas").insert({
+        dramaTitle: dramaTitle,
+        broadCastingStationName: broadCastingStationName,
+      });
+
+      if (error) {
+        console.error("Error inserting data:", error);
+      }
+      console.log("スレッドを生成されました");
+      setDramaTitle("");
     } else {
-      console.log("Insert success:", data);
+      alert("入力されていない項目があります");
     }
-    console.log("スレッドを生成されました");
-    setDramaTitle("");
   };
 
   return (
@@ -70,7 +74,8 @@ const CreateThread = () => {
               return (
                 <BroadcastingStationRadioButton
                   key={station}
-                  broadcastingStationName={station}
+                  station={station}
+                  setBroadCastingStationName={setBroadCastingStationName}
                 />
               );
             })}
@@ -81,7 +86,6 @@ const CreateThread = () => {
                 カテゴリ
               </label>
             </h2>
-            {/*  */}
 
             <div className="w-full flex flex-wrap justify-center gap-4 ">
               {categories.map((category) => {
