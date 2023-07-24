@@ -6,6 +6,14 @@ export const getAllDramas = async () => {
   return dramas.data;
 };
 
-export const addDrama = async (dramaTitle : string , broadCastingStationName : string , category : string[]) => {
-   await supabase.from("dramas").insert({dramaTitle:dramaTitle,broadCastingStationName:broadCastingStationName,category:category})
-}
+export const addDrama = async (
+  dramaTitle: string,
+  broadCastingStationName: string,
+  category: string[],
+) => {
+  await supabase.from("dramas").insert({
+    dramaTitle: dramaTitle,
+    broadCastingStationName: broadCastingStationName,
+    category: category,
+  });
+};
