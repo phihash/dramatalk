@@ -7,6 +7,7 @@ import BroadcastingStationRadioButton from "@/components/BroadcastingStationRadi
 const CreateThread = () => {
   const [dramaTitle, setDramaTitle] = useState("");
   const [broadCastingStationName, setBroadCastingStationName] = useState("");
+  const [dramaCategories, setDramaCategories] = React.useState<string[]>([]);
 
   const broadcastingStations = [
     "NHK系列",
@@ -89,7 +90,14 @@ const CreateThread = () => {
 
             <div className="w-full flex flex-wrap justify-center gap-4 ">
               {categories.map((category) => {
-                return <Category key={category} categoryName={category} />;
+                return (
+                  <Category
+                    key={category}
+                    categoryName={category}
+                    dramaCategories={dramaCategories}
+                    setDramaCategories={setDramaCategories}
+                  />
+                );
               })}
             </div>
           </div>
