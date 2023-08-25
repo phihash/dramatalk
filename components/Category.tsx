@@ -1,15 +1,41 @@
 import React from "react";
+import { useId } from "react";
 
 interface CategoryProps {
   categoryName: string;
+  dramaCategories: Array<string>;
+  setDramaCategories: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
-const Category: React.FC<CategoryProps> = ({ categoryName }) => {
+const Category: React.FC<CategoryProps> = ({
+  categoryName,
+  setDramaCategories,
+  dramaCategories,
+}) => {
+  const checkId = useId();
+  const handleCategoriesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.checked) {
+      if (!dramaCategories.includes(e.target.value)) {
+        setDramaCategories([...dramaCategories, e.target.value]);
+      }
+    } else {
+      setDramaCategories(
+        dramaCategories.filter((item) => item !== e.target.value),
+      );
+    }
+    console.log(dramaCategories);
+  };
   return (
     <div className="w-5/12 text-center">
-      <input type="checkbox" id={categoryName} className="peer hidden" />
+      <input
+        type="checkbox"
+        id={checkId}
+        value={categoryName}
+        className="peer hidden"
+        onChange={handleCategoriesChange}
+      />
       <label
-        htmlFor={categoryName}
+        htmlFor={checkId}
         className="text-sm md:text-base select-none cursor-pointer rounded-lg border-2 border-sky-200 bg-sky-200 block
    py-3 px-6 font-bold text-white transition-colors duration-200 ease-in-out peer-checked:bg-sky-500 peer-checked:text-white peer-checked:border-sky-500 "
       >
