@@ -14,12 +14,15 @@ const Category: React.FC<CategoryProps> = ({
 }) => {
   const checkId = useId();
   const handleCategoriesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // if (e.target.checked) {
-    //   setSelectedCheckBox([...selectedCheckBox, choice])
-    // } else {
-    //   setSelectedCheckBox(selectedCheckBox.filter(item => item !== choice))
-    // }
-    setDramaCategories([e.target.value, ...dramaCategories]);
+    if (e.target.checked) {
+      if (!dramaCategories.includes(e.target.value)) {
+        setDramaCategories([...dramaCategories, e.target.value]);
+      }
+    } else {
+      setDramaCategories(
+        dramaCategories.filter((item) => item !== e.target.value),
+      );
+    }
     console.log(dramaCategories);
   };
   return (

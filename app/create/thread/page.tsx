@@ -32,10 +32,15 @@ const CreateThread = () => {
   };
 
   const createThread = async () => {
-    if (dramaTitle != "" && broadCastingStationName != "") {
+    if (
+      dramaTitle != "" &&
+      broadCastingStationName != "" &&
+      dramaCategories.length != 0
+    ) {
       const { error } = await supabase.from("dramas").insert({
         dramaTitle: dramaTitle,
         broadCastingStationName: broadCastingStationName,
+        dramaCategories: dramaCategories,
       });
 
       if (error) {
